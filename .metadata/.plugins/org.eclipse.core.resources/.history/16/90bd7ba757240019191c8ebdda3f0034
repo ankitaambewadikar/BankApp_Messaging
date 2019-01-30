@@ -1,0 +1,24 @@
+package com.moneymoney.app.transactionsservice.receiver;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+
+public class TransactionReceiver {
+	@Autowired
+	RabbitMessagingTemplate messagingTemplate;
+
+	@Bean
+	public Queue queue() {
+		return new Queue("AccountQ", false);
+	}
+
+	public Double updateMsgBalance(Double updateAccountBalance) {
+
+		messagingTemplate.convertAndSend("AccountQ", updateAccountBalance);
+		return updateAccountBalance;
+
+	}
+}

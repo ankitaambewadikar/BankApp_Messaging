@@ -1,0 +1,22 @@
+package com.moneymoney.app.accountsservice.receiver;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Receiver {
+
+	@Bean
+	public Queue queue() {
+		return new Queue("AccountTransactionQ", false);
+
+	}
+
+	@RabbitListener(queues = "AccountTransactionQ")
+	public void messageReceive(String message) {
+		System.out.println("InReceiver" + message);
+
+	}
+}

@@ -1,0 +1,19 @@
+package com.moneymoney.app.transactionsservice.receiver;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.context.annotation.Bean;
+
+public class TransactionReceiver {
+
+	@Bean
+	public Queue queue() {
+		return new Queue("AccountQ", false);
+	}
+
+	@RabbitListener(queues = "AccountQ")
+	public void updateBalanceQ(Double updatedBalance) {
+		System.out.println("In transaction service");
+	}
+}

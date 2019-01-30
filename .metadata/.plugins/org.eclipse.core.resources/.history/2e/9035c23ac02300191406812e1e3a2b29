@@ -1,0 +1,5 @@
+package com.moneymoney.app.accountsservice.receiver;
+
+public class Receiver {
+
+}

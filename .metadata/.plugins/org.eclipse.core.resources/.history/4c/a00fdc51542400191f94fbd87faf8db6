@@ -1,0 +1,5 @@
+package com.moneymoney.app.transactionsservice.receiver;
+
+public class TransactionReceiver {
+
+}

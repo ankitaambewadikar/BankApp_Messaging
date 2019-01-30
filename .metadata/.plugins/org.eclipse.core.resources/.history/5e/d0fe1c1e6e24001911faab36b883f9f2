@@ -1,0 +1,5 @@
+package com.moneymoney.app.transactionsservice.sender;
+
+public class Sender {
+
+}

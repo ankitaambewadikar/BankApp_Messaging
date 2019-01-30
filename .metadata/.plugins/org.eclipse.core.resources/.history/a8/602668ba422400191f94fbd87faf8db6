@@ -1,0 +1,9 @@
+package com.moneymoney.app.accountsservice.sender;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Lazy
+public class AccountSender {
+
+}
